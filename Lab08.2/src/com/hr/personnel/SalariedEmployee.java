@@ -26,11 +26,14 @@ public class SalariedEmployee extends Employee {
         return salary;
     }
 
+    @Override
+    public void pay(){
+        System.out.println(getName() + " is paid salary " + getSalary());
+    }
+
+    @Override // This annotation is optional but it's good practice to use it.
     public String toString() {
-        StringBuilder output = new StringBuilder("SalariedEmployee: name=")
-                .append(getName())
-                .append(", hireDate=")
-                .append(getHireDate())
+        StringBuilder output = new StringBuilder(super.toString())
                 .append(", salary=")
                 .append(getSalary());
         return output.toString();

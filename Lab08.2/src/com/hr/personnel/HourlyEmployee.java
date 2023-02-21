@@ -34,11 +34,13 @@ public class HourlyEmployee extends Employee {
         this.hours = hours;
     }
 
+    @Override
+    public void pay(){
+        System.out.println(getName() + " is paid hourly " + getRate() * getHours());
+    }
+
     public String toString() {
-        StringBuilder output = new StringBuilder("HourlyEmployee: name=")
-                .append(getName())
-                .append(", hireDate=")
-                .append(getHireDate())
+        StringBuilder output = new StringBuilder(super.toString())
                 .append(", rate=")
                 .append(getRate())
                 .append(", hours=")

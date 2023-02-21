@@ -58,6 +58,12 @@ public class Department {
         employees[currentIndex++] = emp;
     }
 
+    public void payEmployees() {
+        for(int i = 0; i < currentIndex; i++) {
+            employees[i].pay();
+        }
+    }
+
     // accessor methods
     public String getName() {
         return name;
