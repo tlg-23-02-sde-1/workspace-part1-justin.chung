@@ -31,6 +31,10 @@ public class SalariedEmployee extends Employee {
         System.out.println(getName() + " is paid salary " + getSalary());
     }
 
+    public void takeVacation() {
+        System.out.println(getName() + " is on 3 weeks paid vacation.");
+    }
+
     @Override // This annotation is optional but it's good practice to use it.
     public String toString() {
         StringBuilder output = new StringBuilder(super.toString())

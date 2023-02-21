@@ -39,6 +39,7 @@ public class HourlyEmployee extends Employee {
         System.out.println(getName() + " is paid hourly " + getRate() * getHours());
     }
 
+    @Override
     public String toString() {
         StringBuilder output = new StringBuilder(super.toString())
                 .append(", rate=")

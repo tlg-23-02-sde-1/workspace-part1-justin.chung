@@ -64,6 +64,20 @@ public class Department {
         }
     }
 
+    /*
+     *
+     */
+
+    public void holidayBreak() {
+        for (int i = 0; i < currentIndex; i++) {
+            // downcast the Employee reference (employees[i]) to type SalariedEmployee
+            // then we can call SalariedEmployee's takeVacation() method
+            if(employees[i] instanceof SalariedEmployee) {
+                ((SalariedEmployee) employees[i]).takeVacation();
+            }
+        }
+    }
+
     // accessor methods
     public String getName() {
         return name;
