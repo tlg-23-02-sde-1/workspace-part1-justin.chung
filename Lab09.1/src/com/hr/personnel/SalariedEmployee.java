@@ -35,9 +35,20 @@ public class SalariedEmployee extends Employee {
     public void takeVacation() {
         System.out.println(getName() + " is on 3 weeks paid vacation.");
     }
+
     @Override
     public void payTaxes() {
         System.out.println(getName() + " paid taxes= " + getSalary() * SALARIED_TAX_RATE);
+    }
+
+    @Override
+    public void fileReturn() {
+        System.out.println(getName() + " filed returned electronically.");
+    }
+
+    @Override
+    public double getStandardDeduction() {
+        return 10_000.0;
     }
 
     @Override // This annotation is optional but it's good practice to use it.

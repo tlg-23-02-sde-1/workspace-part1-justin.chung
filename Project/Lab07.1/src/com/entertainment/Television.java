@@ -110,12 +110,13 @@ public class Television {
         }
     }
 
-    public void setVolume (int volume)  {
-        if (volume >= MIN_VOLUME && volume <= MAX_VOLUME) {
+    public void setVolume (int volume) throws IllegalArgumentException {
+        if (volume >= MIN_VOLUME && volume <= MAX_VOLUME) { //valid
             this.volume = volume;
         }
-        else {
-            System.out.printf("Invalid volume input: %s, valid range is %s-%s\n", volume, MIN_VOLUME, MAX_VOLUME);
+        else { //invalid
+            throw new IllegalArgumentException("Invalid volume input: " + volume + ", valid range is " + MIN_VOLUME + "-" + MAX_VOLUME);
+            //System.out.printf("Invalid volume input: %s, valid range is %s-%s\n", volume, MIN_VOLUME, MAX_VOLUME);
         }
     }
 

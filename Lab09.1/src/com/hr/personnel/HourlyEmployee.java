@@ -47,6 +47,11 @@ public class HourlyEmployee extends Employee {
     }
 
     @Override
+    public double getStandardDeduction() {
+        return 7_000.0;
+    }
+
+    @Override
     public String toString() {
         StringBuilder output = new StringBuilder(super.toString())
                 .append(", rate=")
