@@ -33,17 +33,20 @@ public class Television {
         instanceCount++;// increments instance count
     }
 
-    public Television(String brand) throws Exception {
+    public Television(String brand)
+    throws InvalidBrandException {
         this();
         setBrand(brand);
     }
 
-    public Television(String brand, int volume) throws Exception {
+    public Television(String brand, int volume)
+    throws InvalidBrandException, IllegalArgumentException {
         this(brand);
         setVolume(volume);
     }
 
-    public Television(String brand, int volume, DisplayType display) throws Exception {
+    public Television(String brand, int volume, DisplayType display)
+    throws InvalidBrandException, IllegalArgumentException {
         this(brand, volume);
         setDisplay(display);
     }
@@ -86,12 +89,13 @@ public class Television {
     //I am possibly doing to throw a CHECKED exception
     // NOTE: because its checked I must declare it in a throws clause
 
-    public void setBrand(String brand) throws IllegalArgumentException{
+    public void setBrand(String brand)
+    throws InvalidBrandException{
         if (isValidBrand(brand)) {
             this.brand = brand.toUpperCase();
         }
         else { //invalid
-            throw new IllegalArgumentException("Invalid brand: " + brand + ", valid brands are: " + String.join(", ", VALID_BRANDS));
+            throw new InvalidBrandException("Invalid brand: " + brand + ", valid brands are: " + String.join(", ", VALID_BRANDS));
             //System.out.println("Invalid brand: " + brand + ", valid brands are: " + String.join(", ", VALID_BRANDS));
         }
     }
@@ -112,7 +116,8 @@ public class Television {
         }
     }
 
-    public void setVolume (int volume) throws IllegalArgumentException {
+    public void setVolume (int volume)
+    throws IllegalArgumentException {
         if (volume >= MIN_VOLUME && volume <= MAX_VOLUME) { //valid
             this.volume = volume;
         }
