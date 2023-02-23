@@ -15,22 +15,20 @@ public class Employee {
     // BUSINESS METHODS
 
     /*
-     * OPTION 4: TRY CATCH FINALLY
-     * "catch and rethrow"
+     * OPTION 4: try catch but throw a different one
      */
 
     public void goToWork()
-    throws DestinationUnreachableException {
+            throws WorkException {
         // create an instance of Car with all three properties: vin, make, model
         Car myCar = new Car ("123456789", "Toyota", "Camry");
         myCar.start();
         try {
             // call moveTo() on the Car object, passing "West Seattle" for the destination
-            myCar.moveTo("West Seattle");
+            myCar.moveTo("Mars");
         }
         catch (DestinationUnreachableException e) {
-            System.out.println("Email sent to Lisa Herbold to complain");
-            throw e;
+            throw new WorkException("Unable to get to work",e);
         }
         finally {
             myCar.stop();
